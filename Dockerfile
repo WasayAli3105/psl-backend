@@ -9,6 +9,12 @@ RUN apt-get update && apt-get install -y \
     libxrender1 \
     libxcb1 \
     libx11-6 \
+    libgles2 \
+    libegl1 \
+    libglvnd0 \
+    libglx0 \
+    mesa-utils \
+    libgles2-mesa \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
