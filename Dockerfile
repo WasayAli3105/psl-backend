@@ -13,25 +13,23 @@ RUN apt-get update && apt-get install -y \
     libegl1 \
     libglvnd0 \
     libglx0 \
-    mesa-utils \
-    libgles2-mesa \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Working directory set karo
+# Working directory
 WORKDIR /app
 
-# Requirements copy karo
+# Requirements
 COPY requirements.txt .
 
-# Libraries install karo
+# Install
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Saara code copy karo
+# Code copy
 COPY . .
 
-# Port expose karo
+# Port
 EXPOSE 8000
 
-# Server start karo
+# Start
 CMD uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}
